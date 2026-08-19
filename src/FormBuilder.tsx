@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { FormEvent, ReactNode } from 'react'
 
 export interface FormBuilderProps {
   children?: ReactNode
@@ -6,7 +6,7 @@ export interface FormBuilderProps {
 }
 
 export function FormBuilder({ children, onSubmit }: FormBuilderProps) {
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const data: Record<string, unknown> = {}
